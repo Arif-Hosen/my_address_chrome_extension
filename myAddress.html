@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Address</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let ip;
+// get public ip address of client
+    fetch('https://jsonip.com/')
+    .then(res=>res.json())
+    .then(async function ipCall (data) { 
+        ip = await data.ip ;
+        ipInfo(ip);
+    })
+    // get client's public ip information
+    function ipInfo(ip){
+        const url=`https://ipapi.co/${ip}/json/`;
+        fetch(url)
+        .then(res=> res.json())
+        .then(data=>console.log('hello',data))
+    }
+     
+    
+    
+    
+</script>
+</html>
